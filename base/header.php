@@ -12,10 +12,8 @@
     <title>One Music - Modern Music HTML5 Template</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+<link rel="stylesheet" href="/movie-booking-master/style.css">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -40,7 +38,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand"><img src="/movie-booking-master/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -58,43 +56,42 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="/movie-booking-master/index.php">Home</a></li>
                                     <li><a href="#">Movies 🎬</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Now Showing</a></li>
-                                            <li><a href="#">Coming Soon</a></li>
-                                            <li><a href="#">Top Rated</a></li>
+                                            <li><a href="/movie-booking-master/movies/now-showing.php">Now Showing</a></li>
+                                            <li><a href="/movie-booking-master/movies/coming-soon.php">Coming Soon</a></li>
+                                            <li><a href="/movie-booking-master/movies/top-rated.php">Top Rated</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Theaters 🎭</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">All Theaters</a></li>
-                                            <li><a href="#">Nearby Theaters</a></li>
+                                            <li><a href="/movie-booking-master/theaters/all-theater.php">All Theaters</a></li>
+                                            <li><a href="/movie-booking-master/theaters/nearby-theaters.php">Nearby Theaters</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Book Ticket 🎟️</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">By Movie</a></li>
-                                            <li><a href="#">By Theater</a></li>
+                                            <li><a href="/movie-booking-master/book-ticket/by-movie.php">By Movie</a></li>
+                                            <li><a href="/movie-booking-master/book-ticket/by-theater.php">By Theater</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Reviews ⭐</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Movie Reviews</a></li>
-                                            <li><a href="#">Top Rated Movies</a></li>
-                                            <li><a href="#">User Ratings</a></li>
+                                            <li><a href="/movie-booking-master/reviews/movie-review.php">Movie Reviews</a></li>
+                                            <li><a href="/movie-booking-master/reviews/user-ratings.php">User Ratings</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-down"><a href="#">More</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="contact.php">Contact Us</a></li>
+                                            <li><a href="/movie-booking-master/more/about-us.php">About Us</a></li>
+                                            <li><a href="/movie-booking-master/more/contact.php">Contact Us</a></li>
                                         </ul>
                                     </li>
                                     <li class="has-down"><a href="#">Account</a>
                                         <ul class="dropdown">
-                                            <li><a href="login.php">Login</a></li>
-                                            <li><a href="login.php">Register</a></li>
+                                            <li><a href="/movie-booking-master/account/login.php">Login</a></li>
+                                            <li><a href="/movie-booking-master/account/register.php">Register</a></li>
                                         </ul>
                                     </li>
                                 </ul>

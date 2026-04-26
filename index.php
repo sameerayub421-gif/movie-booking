@@ -455,27 +455,24 @@ include('./base/header.php');
         <div class="row align-items-end">
             <div class="col-12 col-md-5 col-lg-4">
                 <div class="featured-artist-thumb">
-                    <img src="img/bg-img/fa.jpg" alt="">
+                    <img src="images/index.img/L-movie13.jpg" alt="">
                 </div>
             </div>
             <div class="col-12 col-md-7 col-lg-8">
                 <div class="featured-artist-content">
                     <!-- Section Heading -->
                     <div class="section-heading white text-left mb-30">
-                        <p>See what’s new</p>
-                        <h2>Buy What’s New</h2>
+                        <p>Spotlight on</p>
+                        <h2>Ranveer Singh</h2>
                     </div>
-                    <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius
-                        rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis
-                        nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec
-                        in velit non elit pulvinar pellentesque et non eros.</p>
+                    <p>Ranveer Singh is a charismatic and versatile Indian actor renowned for his dynamic performances in Bollywood cinema. From his breakout role in the romantic comedy Band Baaja Baaraat to his powerful portrayals in historical epics like Bajirao Mastani and Padmaavat, he has captivated audiences worldwide with his boundless energy and dedication. A recipient of multiple National Awards and Filmfare honors, Ranveer continues to innovate in Indian film with his bold choices, infectious enthusiasm, and commitment to diverse storytelling.</p>
                     <div class="song-play-area">
                         <div class="song-name">
-                            <p>01. Main Hit Song</p>
+                            <p>01. Featured Video Clip</p>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <video controls>
+                            <source src="images/index.img/movie-clip.html" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -497,75 +494,100 @@ include('./base/header.php');
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt1.jpg" alt="">
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie1.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>DANGAL</h6>
+                            </div>
                         </div>
-                        <div class="content-">
-                            <h6>Sam Smith</h6>
-                            <p>Underground</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="150ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt2.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>Power Play</h6>
-                            <p>In my mind</p>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
                         </div>
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="200ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt3.jpg" alt="">
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="150ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie2.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>TOASTER</h6>
+                            </div>
                         </div>
-                        <div class="content-">
-                            <h6>Cristinne Smith</h6>
-                            <p>My Music</p>
-                        </div>
-                    </div>
-
-                    <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="250ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt4.jpg" alt="">
-                        </div>
-                        <div class="content-">
-                            <h6>The Music Band</h6>
-                            <p>Underground</p>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
                         </div>
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="300ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt5.jpg" alt="">
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="200ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie3.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>BLOODHOUNDS</h6>
+                            </div>
                         </div>
-                        <div class="content-">
-                            <h6>Creative Lyrics</h6>
-                            <p>Songs and stuff</p>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
                         </div>
                     </div>
 
                     <!-- Single Top Item -->
-                    <div class="single-top-item d-flex wow fadeInUp" data-wow-delay="350ms">
-                        <div class="thumbnail">
-                            <img src="img/bg-img/wt6.jpg" alt="">
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="250ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie4.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>RRR</h6>
+                            </div>
                         </div>
-                        <div class="content-">
-                            <h6>The Culture</h6>
-                            <p>Pop Songs</p>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
                         </div>
                     </div>
+
+                    <!-- Single Top Item -->
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie5.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>MARDAANI 3</h6>
+                            </div>
+                        </div>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
+                    </div>
+
+                    <!-- Single Top Item -->
+                    <div class="single-top-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="350ms">
+                        <div class="first-part d-flex align-items-center">
+                            <div class="thumbnail">
+                                <img src="images/index.img/L-movie6.jpg" alt="">
+                            </div>
+                            <div class="content-">
+                                <h6>TASKAREE</h6>
+                            </div>
+                        </div>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
+                    </div>
+                           
 
                 </div>
             </div>
 
-            <!-- ***** New Hits Songs ***** -->
+            <!-- ***** New Hits Movies ***** -->
             <div class="col-12 col-lg-4">
                 <div class="new-hits-area mb-100">
                     <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
@@ -578,16 +600,15 @@ include('./base/header.php');
                         data-wow-delay="100ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt7.jpg" alt="">
+                                <img src="images/index.img/L-movie7.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>Sam Smith</h6>
-                                <p>Underground</p>
+                                <h6>VEER-ZAARA</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
 
                     <!-- Single Top Item -->
@@ -595,16 +616,15 @@ include('./base/header.php');
                         data-wow-delay="150ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt8.jpg" alt="">
+                                <img src="images/index.img/L-movie8.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>Power Play</h6>
-                                <p>In my mind</p>
+                                <h6>THE GIRLFRIEND</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
 
                     <!-- Single Top Item -->
@@ -612,16 +632,15 @@ include('./base/header.php');
                         data-wow-delay="200ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt9.jpg" alt="">
+                                <img src="images/index.img/L-movie9.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>Cristinne Smith</h6>
-                                <p>My Music</p>
+                                <h6>WIND CHILL</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
 
                     <!-- Single Top Item -->
@@ -629,16 +648,15 @@ include('./base/header.php');
                         data-wow-delay="250ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt10.jpg" alt="">
+                                <img src="images/index.img/L-movie10.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>The Music Band</h6>
-                                <p>Underground</p>
+                                <h6>TRUE BEAUTY</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
 
                     <!-- Single Top Item -->
@@ -646,16 +664,15 @@ include('./base/header.php');
                         data-wow-delay="300ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt11.jpg" alt="">
+                                <img src="images/index.img/L-movie11.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>Creative Lyrics</h6>
-                                <p>Songs and stuff</p>
+                                <h6>BHOOL BHULAIYAA 2</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
 
                     <!-- Single Top Item -->
@@ -663,16 +680,15 @@ include('./base/header.php');
                         data-wow-delay="350ms">
                         <div class="first-part d-flex align-items-center">
                             <div class="thumbnail">
-                                <img src="img/bg-img/wt12.jpg" alt="">
+                                <img src="images/index.img/L-movie12.jpg" alt="">
                             </div>
                             <div class="content-">
-                                <h6>The Culture</h6>
-                                <p>Pop Songs</p>
+                                <h6>DHURANDHAR</h6>
                             </div>
                         </div>
-                        <audio preload="auto" controls>
-                            <source src="audio/dummy-audio.mp3">
-                        </audio>
+                        <div class="play-icon">
+                            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>
