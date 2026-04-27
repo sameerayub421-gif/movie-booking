@@ -588,3 +588,50 @@ img {
 /* Fallback Responsive CSS */
 
 /*# sourceMappingURL=classy-nav.css.map */
+/* ===== Navbar Color Fix ===== */
+
+/* Main navbar background */
+.classy-nav-container {
+  color: #ffffff !important;
+}
+
+/* Default navbar links */
+.classy-nav-container a,
+.classynav ul li a,
+.classy-navbar .nav-brand {
+    color: #000000 !important;
+}
+
+/* Dropdown / arrow icons */
+.classynav ul li.megamenu-item > a:after,
+.classynav ul li.has-down > a:after {
+    color: #000000 !important;
+}
+
+/* Hover color */
+.classy-nav-container a:hover,
+.classy-nav-container a:focus,
+.classynav ul li a:hover {
+    color: #1abc9c !important;
+}
+
+/* Sticky navbar */
+.classy-nav-container.classy-sticky {
+    background-color: #ffffff !important;
+}
+
+/* Sticky navbar links */
+.classy-nav-container.classy-sticky a,
+.classy-nav-container.classy-sticky .nav-brand {
+    color: #ffffff !important;
+}
+
+/* Mobile menu background */
+.breakpoint-on .classy-navbar .classy-menu {
+    background-color: #ffffff !important;
+}
+
+/* Mobile menu text */
+.breakpoint-on .classynav ul li a {
+    color: #000000 !important;
+}
