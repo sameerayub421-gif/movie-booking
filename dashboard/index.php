@@ -268,7 +268,7 @@ include("./base/header.php");
             </div>
             <!-- Widgets End -->
 
-<?php
-include("./base/footer.php");
-?>
-  
+
+ <?php
+ include("./base/footer.php");
+ ?>
