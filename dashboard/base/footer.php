@@ -1,4 +1,4 @@
-           <!-- Footer Start -->
+  <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
@@ -34,7 +34,7 @@
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="/movie-booking-master/dashboard/js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
