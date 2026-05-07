@@ -14,7 +14,7 @@ $theater_result = mysqli_query($connection, $theater_query);
 $total_theaters = mysqli_num_rows($theater_result);
 
 $booking_query = "SELECT * FROM bookings";
-$booking_result = mysqli_query($conn, $booking_query);
+$booking_result = mysqli_query($connection, $booking_query);
 $total_bookings = mysqli_num_rows($booking_result);
 ?>
 

@@ -1,5 +1,22 @@
 <?php
 include('../base/header.php');
+
+$search = "";
+
+if(isset($_GET['city']) && $_GET['city'] != ""){
+
+    $search = $_GET['city'];
+
+    $select_query = "SELECT * FROM theaters 
+                     WHERE location LIKE '%$search%'";
+
+}else{
+
+    $select_query = "SELECT * FROM theaters WHERE 1=0";
+
+}
+
+$result = mysqli_query($connection, $select_query);
 ?>
 
 <!DOCTYPE html>
@@ -7,8 +24,6 @@ include('../base/header.php');
 <head>
 <meta charset="UTF-8">
 <title>Nearby Theaters</title>
-
-<link rel="stylesheet" href="animate.css">
 
 <style>
 
@@ -98,17 +113,6 @@ p.desc{
     color:#555;
 }
 
-/* badge */
-.distance{
-    display:inline-block;
-    margin-top:10px;
-    padding:5px 10px;
-    font-size:12px;
-    border-radius:20px;
-    background:#000;
-    color:#fff;
-}
-
 /* button */
 .btn{
     margin-top:15px;
@@ -127,136 +131,101 @@ p.desc{
     color:#fff;
 }
 
-/* hide class */
-.hide{
-    display:none;
-}
-
 </style>
 </head>
 
 <body>
+
 <section class="hero-area">
     <div class="hero-slides owl-carousel">
-        <!-- Single Hero Slide -->
+
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background1.jpg);"></div>
-            <!-- Slide Content -->
+
+            <div class="slide-img bg-img"
+                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
+            </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+
                         <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">SuperHit Movie</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">IF WISHES COULD KILL <span>IF WISHES COULD KILL</span>
+
+                            <h6>Nearby Cinema</h6>
+
+                            <h2>
+                                FIND THEATERS
+                                <span>FIND THEATERS</span>
                             </h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background2.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Upcoming Blockbuster</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">DHURANDHAR 2 <span>DHURANDHAR 2</span></h2>
-                
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
-<h1 class="animated fadeInDown">Nearby Theaters</h1>
+<h1>Nearby Theaters</h1>
 
-<p class="desc animated fadeIn">
+<p class="desc">
 Find cinemas near your location and book your seats instantly.
 </p>
 
-<!-- SEARCH BOX -->
+<!-- SEARCH -->
 <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Enter city e.g Lahore, Karachi">
-    <button onclick="filterTheaters()">Search</button>
-    <button onclick="resetFilter()">Reset</button>
-</div>
 
-<div class="container" id="theaterContainer">
+    <form method="GET">
 
-    <div class="card" data-city="lahore">
-        <h3>🎬 Cineplex Cinema</h3>
-        <p>📍 Lahore Mall Road</p>
-        <span class="distance">2.5 km</span>
-        <p>⏱ 10 min drive</p>
-        <a href="#" class="btn">Book Seat</a>
-    </div>
+        <input type="text"
+               name="city"
+               placeholder="Enter city e.g Lahore"
+               value="<?php echo $search; ?>">
 
-    <div class="card" data-city="lahore">
-        <h3>🎬 Mega Movies Hall</h3>
-        <p>📍 DHA Phase 5</p>
-        <span class="distance">4 km</span>
-        <p>⏱ 15 min drive</p>
-        <a href="#" class="btn">Book Seat</a>
-    </div>
+        <button type="submit">
+            Search
+        </button>
 
-    <div class="card" data-city="karachi">
-        <h3>🎬 IMAX Cinema</h3>
-        <p>📍 Clifton Karachi</p>
-        <span class="distance">6 km</span>
-        <p>⏱ 20 min drive</p>
-        <a href="#" class="btn">Book Seat</a>
-    </div>
+        <a href="nearby-theaters.php" class="btn">
+            Reset
+        </a>
 
-    <div class="card" data-city="karachi">
-        <h3>🎬 Star Cinema</h3>
-        <p>📍 DHA Karachi</p>
-        <span class="distance">5 km</span>
-        <p>⏱ 18 min drive</p>
-        <a href="#" class="btn">Book Seat</a>
-    </div>
+    </form>
 
 </div>
 
-<script>
+<div class="container">
 
-// filter function
-function filterTheaters(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+<?php while($theater = mysqli_fetch_array($result)){ ?>
 
-    cards.forEach(card => {
-        let city = card.getAttribute("data-city");
+    <div class="card">
 
-        if(input === "" || city.includes(input)){
-            card.classList.remove("hide");
-        } else {
-            card.classList.add("hide");
-        }
-    });
-}
+        <h3>
+            🎬 <?php echo $theater['name']; ?>
+        </h3>
 
-// reset function
-function resetFilter(){
-    document.getElementById("searchInput").value = "";
+        <p>
+            📍 <?php echo $theater['location']; ?>
+        </p>
 
-    document.querySelectorAll(".card").forEach(card => {
-        card.classList.remove("hide");
-    });
-}
+        <p>
+            🎭 Total Screens:
+            <?php echo $theater['total_screens']; ?>
+        </p>
 
-</script>
+        <a href="view-movies.php?theater_id=<?php echo $theater['theater_id']; ?>"
+           class="btn">
+           View Movies
+        </a>
+
+    </div>
+
+<?php } ?>
+
+</div>
 
 </body>
 </html>

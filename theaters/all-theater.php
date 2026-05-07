@@ -1,5 +1,8 @@
 <?php
 include('../base/header.php');
+
+$select_query = "SELECT * FROM theaters";
+$result = mysqli_query($connection, $select_query);
 ?>
 
 <!DOCTYPE html>
@@ -92,105 +95,83 @@ h1{
 </head>
 
 <body>
+
 <section class="hero-area">
     <div class="hero-slides owl-carousel">
-        <!-- Single Hero Slide -->
+
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background1.jpg);"></div>
-            <!-- Slide Content -->
+
+            <div class="slide-img bg-img" 
+                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
+            </div>
+
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+
                         <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">SuperHit Movie</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">IF WISHES COULD KILL <span>IF WISHES COULD KILL</span>
+
+                            <h6>Best Cinema Experience</h6>
+
+                            <h2>
+                                ALL THEATERS
+                                <span>ALL THEATERS</span>
                             </h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+
+                            <a href="#theaters"
+                               class="btn oneMusic-btn mt-50">
+                               Explore
+                               <i class="fa fa-angle-double-right"></i>
+                            </a>
+
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background2.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Upcoming Blockbuster</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">DHURANDHAR 2 <span>DHURANDHAR 2</span></h2>
-                
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
 <h1 class="animated bounceIn">All Theaters</h1>
 
 <p class="section-title">
-    Explore all available cinemas in our system. Choose your favorite theater and enjoy the best movie experience.
+    Explore all available cinemas in our system.
 </p>
 
-<div class="container">
+<div class="container" id="theaters">
+
+<?php while($theater = mysqli_fetch_array($result)){ ?>
 
     <div class="card animated fadeInUp">
-        <h3>🎭 Cineplex Cinema</h3>
-        <p>📍 Lahore Mall Road</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 Dolby Sound + AC Hall</p>
-        <a href="#" class="btn">View Movies</a>
+
+        <h3>
+            🎭 <?php echo $theater['name']; ?>
+        </h3>
+
+        <p>
+            📍 <?php echo $theater['location']; ?>
+        </p>
+
+        <p>
+            🎬 Total Screens:
+            <?php echo $theater['total_screens']; ?>
+        </p>
+
+        <p>
+            🎧 Dolby Sound + AC Hall
+        </p>
+
+       <a href="theater-movie.php?id=<?php echo $theater['theater_id']; ?>"
+          class="btn">
+          View Movies
+       </a>
+
     </div>
 
-    <div class="card animated fadeInUp">
-        <h3>🎭 Mega Movies Hall</h3>
-        <p>📍 Karachi DHA</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 Dolby Sound + AC Hall</p>
-        <a href="#" class="btn">View Movies</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <h3>🎭 Star Cine Gold</h3>
-        <p>📍 Islamabad Centaurus</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 Dolby Sound + AC Hall</p>
-        <a href="#" class="btn">View Movies</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <h3>🎭 IMAX Cinema</h3>
-        <p>📍 Faisalabad City Center</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 IMAX + Dolby Experience</p>
-        <a href="#" class="btn">View Movies</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <h3>🎭 Silver Screen Cinema</h3>
-        <p>📍 Lahore Gulberg</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 Premium Sound System</p>
-        <a href="#" class="btn">View Movies</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <h3>🎭 Royal Cine Hall</h3>
-        <p>📍 Rawalpindi Saddar</p>
-        <p>🎟 Gold | Platinum | Box Seats</p>
-        <p>🎧 Luxury Seating + AC Hall</p>
-        <a href="#" class="btn">View Movies</a>
-    </div>
+<?php } ?>
 
 </div>
 

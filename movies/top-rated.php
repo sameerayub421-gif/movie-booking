@@ -1,279 +1,170 @@
 <?php
 include('../base/header.php');
+
+$select_query = "
+SELECT movies.*, AVG(reviews.rating) as avg_rating
+FROM movies
+LEFT JOIN reviews ON movies.movie_id = reviews.movie_id
+GROUP BY movies.movie_id
+ORDER BY avg_rating DESC
+";
+
+$result = mysqli_query($connection, $select_query);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Top Rated Movies</title>
+<section class="hero-area">
+    <div class="hero-slides owl-carousel">
 
-<link rel="stylesheet" href="animate.css">
+        <div class="single-hero-slide d-flex align-items-center justify-content-center">
+
+            <div class="slide-img bg-img"
+                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="hero-slides-content text-center">
+
+                            <h6>Top Rated Collection</h6>
+
+                            <h2>
+                                BEST MOVIES
+                                <span>BEST MOVIES</span>
+                            </h2>
+
+                            <a href="#movies"
+                               class="btn oneMusic-btn mt-50">
+                               Explore
+                               <i class="fa fa-angle-double-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="section-padding-100" id="movies">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <div class="section-heading style-2">
+                    <p>Most Popular Movies</p>
+                    <h2>Top Rated Movies</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <?php while($movie = mysqli_fetch_array($result)){ ?>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+                <div class="card movie-card mb-30">
+
+                    <span class="badge">
+
+                        ⭐ 
+                        <?php 
+                        if($movie['avg_rating']){
+                            echo round($movie['avg_rating'],1);
+                        }else{
+                            echo "No Rating";
+                        }
+                        ?>
+
+                    </span>
+
+                    <img src="../dashboard/uploads/<?php echo $movie['poster']; ?>">
+
+                    <div class="card-body text-center">
+
+                        <h4>
+                            <?php echo $movie['title']; ?>
+                        </h4>
+
+                        <p>
+                            <?php echo $movie['genre']; ?>
+                        </p>
+
+                        <a href="../book-ticket/by-movie.php?id=<?php echo $movie['movie_id']; ?>"
+                           class="btn oneMusic-btn">
+                           Book Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <?php } ?>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <style>
-body{
-    margin:0;
-    background:#ffffff;
-    font-family:Arial, sans-serif;
-    color:#333;
-}
 
-/* Title */
-h1{
-    text-align:center;
-    margin:30px 0;
-    font-size:40px;
-}
-
-/* Grid */
-.container{
-    width:90%;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-    gap:20px;
-    padding-bottom:50px;
-}
-
-/* Card */
-.card{
+.movie-card{
     background:#f8f9fa;
+    border:none;
     overflow:hidden;
-    text-align:center;
     transition:0.3s;
     position:relative;
 }
 
-/* Image */
-.card img{
+.movie-card img{
     width:100%;
-    height:260px;
+    height:350px;
     object-fit:cover;
 }
 
-/* Text */
-.card h3{
-    margin:10px 0 5px 0;
+.movie-card:hover{
+    transform:translateY(-5px);
 }
 
-.card p{
-    margin:0;
-    font-size:14px;
+.movie-card h4{
+    font-size:20px;
+    margin-top:10px;
+}
+
+.movie-card p{
     color:#666;
+    font-size:14px;
 }
 
-/* Badge */
 .badge{
     position:absolute;
     top:10px;
     left:10px;
     background:#000;
     color:#fff;
-    padding:5px 10px;
-    font-size:12px;
+    padding:6px 10px;
     border-radius:5px;
+    font-size:13px;
+    z-index:10;
 }
 
-/* Button */
-.view-btn{
-    margin:10px 0 15px 0;
-    padding:8px 12px;
-    background:#fff;
-    color:#000;
-    border:1px solid #000;
-    cursor:pointer;
-    transition:all 0.3s ease;
-    display:inline-block;
-    text-decoration:none;
-}
-
-/* hover */
-.view-btn:hover{
-    background:#111;
-    color:#fff;
-    transform:translateY(-2px);
-}
-.info-section{
-    width:90%;
-    margin:40px auto;
-}
-
-.info-box{
-    background:#f8f9fa;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-.info-box h2{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-.info-box h3{
-    margin-top:15px;
-}
-
-.info-box p{
-    line-height:1.6;
-    margin-bottom:10px;
-}
-
-.info-box ul{
-    padding-left:20px;
-}
 </style>
-</head>
-
-<body>
-    <section class="hero-area">
-    <div class="hero-slides owl-carousel">
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background1.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">SuperHit Movie</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">IF WISHES COULD KILL <span>IF WISHES COULD KILL</span>
-                            </h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background2.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Upcoming Blockbuster</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">DHURANDHAR 2 <span>DHURANDHAR 2</span></h2>
-                
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<h1 class="animated bounceIn">Top Rated Movies</h1>
-
-<div class="container">
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 9.0</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie1.jpg">
-        <h3>The Dark Knight</h3>
-        <p>Action / Crime</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 8.8</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie2.jpg">
-        <h3>Inception</h3>
-        <p>Sci-Fi / Thriller</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 8.6</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie3.jpg">
-        <h3>Interstellar</h3>
-        <p>Sci-Fi / Drama</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 9.2</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie4.jpg">
-        <h3>Avengers Endgame</h3>
-        <p>Action / Superhero</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 8.5</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie5.jpg">
-        <h3>Joker</h3>
-        <p>Drama / Crime</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 7.9</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie6.jpg">
-        <h3>Titanic</h3>
-        <p>Romance / Drama</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 8.1</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie7.jpg">
-        <h3>Avatar</h3>
-        <p>Sci-Fi / Adventure</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-    <div class="card animated fadeInUp">
-        <span class="badge">⭐ 8.4</span>
-        <img src="/movie-booking-master/images/theater.img/T-movie1.jpg">
-        <h3>Spider-Man No Way Home</h3>
-        <p>Action / Adventure</p>
-        <a href="#" class="view-btn">View Details</a>
-    </div>
-
-</div>
-
-<section class="info-section">
-
-    <div class="info-box">
-
-        <h2>🌟 Top Rated Movies Collection</h2>
-
-        <p>
-            Welcome to the Top Rated section of our Online Movie Booking System. 
-            Here you will find the most loved and highly rated movies of all time.
-            These films are selected based on audience ratings, reviews, and popularity worldwide.
-        </p>
-
-        <h3>🎬 What Makes a Movie Top Rated?</h3>
-
-        <p>
-            A movie becomes top rated when it delivers outstanding storylines, strong performances, 
-            and unforgettable cinematic experience. These films are appreciated by both critics and audiences.
-        </p>
-
-        <h3>⭐ Why Watch These Movies?</h3>
-
-        <ul>
-            <li>Highly rated by global audiences</li>
-            <li>Award-winning performances</li>
-            <li>Best storytelling and direction</li>
-            <li>Perfect choice for quality entertainment</li>
-        </ul>
-
-    </div>
-
-</section>
-
-</body>
-</html>
 
 <?php
 include('../base/footer.php');

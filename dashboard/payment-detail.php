@@ -1,5 +1,5 @@
 <?php
-include('../base/header.php');
+include('./base/header.php');
 
 $select_query = "SELECT * FROM payments";
 

@@ -36,7 +36,8 @@ $result = mysqli_query($connection, $select_query);
                         <th>Language</th>
                         <th>Duration</th>
                         <th>Release Date</th>
-                        <th>Trailer</th>
+                        <th>Poster</th>
+                        <th>Trailer </th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -53,7 +54,7 @@ $result = mysqli_query($connection, $select_query);
                         <td><?php echo $movie['language']; ?></td>
                         <td><?php echo $movie['duration']; ?> min</td>
                         <td><?php echo $movie['release_date']; ?></td>
-
+                        <td><img src="uploads/<?php echo $movie['poster']; ?>" width="80"></td>
                         <td>
                             <a href="<?php echo $movie['trailer_url']; ?>" 
                                target="_blank" 
@@ -63,7 +64,7 @@ $result = mysqli_query($connection, $select_query);
                         </td>
 
                         <td>
-                            <a href="edit-movie.php?id=<?php echo $movie['movie_id']; ?>" 
+                            <a href="edit-movies.php?id=<?php echo $movie['movie_id']; ?>" 
                                class="btn btn-sm btn-warning">
                                Edit
                             </a>

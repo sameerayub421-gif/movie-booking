@@ -1,9 +1,7 @@
 <?php
-include("../base/header.php");
-
+include("./base/header.php");
 
 $id = $_GET['id'];
-
 
 $select_query  = "SELECT * FROM movies WHERE movie_id = '$id'";
 $result = mysqli_query($connection, $select_query);
@@ -18,7 +16,26 @@ if(isset($_POST['update_movie'])){
     $language     = $_POST['language'];
     $genre        = $_POST['genre'];
     $trailer_url  = $_POST['trailer_url'];
+    $poster = $_FILES['poster']['name'];
+    $tmpPoster = $_FILES['poster']['tmp_name'];
+    $destination = "./uploads/".$poster;
+    $extension = pathinfo($poster, PATHINFO_EXTENSION);
 
+    if($poster != ""){
+
+        if($extension == "jpg" || $extension == "png" || $extension == "jpeg"){
+
+            move_uploaded_file($tmpPoster, $destination);
+
+        } else {
+
+            echo "<script>alert('Invalid image format');</script>";
+        }
+
+    } else {
+
+        $poster = $movie['poster'];
+    }
 
     $update = "UPDATE movies SET
         title='$title',
@@ -79,6 +96,10 @@ if(isset($_POST['update_movie'])){
                 </div>
 
                 <div class="col-12">
+                    <img src="./uploads/<?php echo $movie['poster']; ?>" width="120" class="rounded mb-2">
+                </div>
+
+                <div class="col-12">
                     <label class="form-label text-white">Trailer URL</label>
                     <input type="text" name="trailer_url" value="<?php echo $movie['trailer_url']; ?>" class="form-control bg-dark text-white border-0">
                 </div>
@@ -97,4 +118,4 @@ if(isset($_POST['update_movie'])){
     </div>
 </div>
 
-<?php include("../base/footer.php"); ?>
+<?php include("./base/footer.php"); ?>

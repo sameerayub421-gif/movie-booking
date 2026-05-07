@@ -1,110 +1,165 @@
 <?php 
-include('../dashboard/config/db_connection.php');
+include('/movie-booking-master/dashboard/config/db_connection.php');
 
+$base_url = "/movie-booking-master/";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+<title>Online Movie Booking System</title>
 
-    <!-- Favicon -->
-<link rel="stylesheet" href="/movie-booking-master/style.css">
+<link rel="icon" href="<?php echo $base_url; ?>img/core-img/favicon.ico">
 
-
+<link rel="stylesheet" href="<?php echo $base_url; ?>style.css">
 </head>
 
 <body>
 
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="circle-preloader">
+        <img src="<?php echo $base_url; ?>img/core-img/compact-disc.png" alt="">
+    </div>
+</div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+<header class="header-area">
 
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="/movie-booking-master/img/core-img/logo.png" alt=""></a>
+    <div class="oneMusic-main-menu">
 
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+        <div class="classy-nav-container breakpoint-off">
+
+            <div class="container">
+
+                <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                    <a href="<?php echo $base_url; ?>index.php" class="nav-brand">
+                        <img src="<?php echo $base_url; ?>img/core-img/logo.png" alt="">
+                    </a>
+
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+
+                    <div class="classy-menu">
+
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap">
+                                <span class="top"></span>
+                                <span class="bottom"></span>
+                            </div>
                         </div>
 
-                        <!-- Menu -->
-                        <div class="classy-menu">
+                        <div class="classynav">
 
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
+                            <ul>
 
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="/movie-booking-master/index.php">Home</a></li>
-                                    <li><a href="#">Movies 🎬</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/movies/now-showing.php">Now Showing</a></li>
-                                            <li><a href="/movie-booking-master/movies/coming-soon.php">Coming Soon</a></li>
-                                            <li><a href="/movie-booking-master/movies/top-rated.php">Top Rated</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Theaters 🎭</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/theaters/all-theater.php">All Theaters</a></li>
-                                            <li><a href="/movie-booking-master/theaters/nearby-theaters.php">Nearby Theaters</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Book Ticket 🎟️</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/book-ticket/by-movie.php">By Movie</a></li>
-                                            <li><a href="/movie-booking-master/book-ticket/by-theater.php">By Theater</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Reviews ⭐</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/reviews/movie-review.php">Movie Reviews</a></li>
-                                            <li><a href="/movie-booking-master/reviews/user-ratings.php">User Ratings</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-down"><a href="#">More</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/more/about-us.php">About Us</a></li>
-                                            <li><a href="/movie-booking-master/more/contact.php">Contact Us</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-down"><a href="#">Account</a>
-                                        <ul class="dropdown">
-                                            <li><a href="/movie-booking-master/account/login.php">Login</a></li>
-                                            <li><a href="/movie-booking-master/account/register.php">Register</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <li>
+                                    <a href="<?php echo $base_url; ?>index.php">Home</a>
+                                </li>
 
-                                <!-- Cart Button -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
+                                <li>
+                                    <a href="#">Movies</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>movies/all-movies.php">All Movies</a></li>
+                                        <li><a href="<?php echo $base_url; ?>movies/now-showing.php">Now Showing</a></li>
+                                        <li><a href="<?php echo $base_url; ?>movies/coming-soon.php">Coming Soon</a></li>
+                                        <li><a href="<?php echo $base_url; ?>movies/top-rated.php">Top Rated</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">Theaters</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>theaters/all-theater.php">All Theaters</a></li>
+                                        <li><a href="<?php echo $base_url; ?>theaters/nearby-theaters.php">Nearby Theaters</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">Shows</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>show/all-shows.php">All Shows</a></li>
+                                        <li><a href="<?php echo $base_url; ?>show/today-shows.php">Today Shows</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">Book Ticket</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>book-ticket/by-movie.php">By Movie</a></li>
+                                        <li><a href="<?php echo $base_url; ?>book-ticket/by-theater.php">By Theater</a></li>
+                                        <li><a href="<?php echo $base_url; ?>book-ticket/select-seat.php">Select Seat</a></li>
+                                        <li><a href="<?php echo $base_url; ?>book-ticket/payment.php">Payment</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">Reviews</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>reviews/movie-review.php">Movie Reviews</a></li>
+                                        <li><a href="<?php echo $base_url; ?>reviews/user-ratings.php">User Ratings</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">Account</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>account/profile.php">My Profile</a></li>
+                                        <li><a href="<?php echo $base_url; ?>account/my-bookings.php">My Bookings</a></li>
+                                        <li><a href="<?php echo $base_url; ?>account/payment-history.php">Payment History</a></li>
+                                        <li><a href="<?php echo $base_url; ?>account/logout.php">Logout</a></li>
+                                    </ul>
+
+                                </li>
+
+                                <li>
+                                    <a href="#">More</a>
+
+                                    <ul class="dropdown">
+                                        <li><a href="<?php echo $base_url; ?>more/about-us.php">About Us</a></li>
+                                        <li><a href="<?php echo $base_url; ?>more/contact.php">Contact Us</a></li>
+                                        <li><a href="<?php echo $base_url; ?>more/faq.php">FAQ</a></li>
+                                        <li><a href="<?php echo $base_url; ?>more/privacy-policy.php">Privacy Policy</a></li>
+                                        <li><a href="<?php echo $base_url; ?>more/terms.php">Terms & Conditions</a></li>
+                                        <li><a href="<?php echo $base_url; ?>reviews/latest-reviews.php">Latest Reviews</a></li>
+                                        <li><a href="<?php echo $base_url; ?>shows/upcoming-shows.php">Upcoming Shows</a></li>
+                                    </ul>
+
+                                </li>
+
+                            </ul>
 
                         </div>
-                    </nav>
-                </div>
+
+                    </div>
+
+                </nav>
+
             </div>
+
         </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+
+    </div>
+
+</header>

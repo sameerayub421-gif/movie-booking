@@ -1,5 +1,9 @@
 <?php
 include('../base/header.php');
+
+$theater_query = "SELECT * FROM theaters";
+$theater_result = mysqli_query($connection, $theater_query);
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +46,7 @@ select{
     text-align:center;
 }
 
-/* 🔥 Theater title improved */
+/* Theater title */
 .theater-title{
     font-size:28px;
     font-weight:800;
@@ -53,7 +57,7 @@ select{
     text-transform:uppercase;
 }
 
-/* 🔥 CENTERED GRID FIX */
+/* Grid */
 .movie-grid{
     display:grid;
     grid-template-columns:repeat(2, 220px);
@@ -99,10 +103,13 @@ select{
 
 /* Button */
 .btn{
+    display:inline-block;
     margin:10px 0 15px;
     padding:7px 12px;
     border:1px solid #000;
     background:#fff;
+    color:#000;
+    text-decoration:none;
     cursor:pointer;
     transition:0.3s;
 }
@@ -114,170 +121,242 @@ select{
 
 /* responsive */
 @media(max-width:992px){
+
     .movie-grid{
         grid-template-columns:repeat(2, 220px);
     }
+
 }
 
 @media(max-width:600px){
+
     .movie-grid{
         grid-template-columns:repeat(1, 220px);
     }
+
 }
 
 </style>
 </head>
 
 <body>
+
 <section class="hero-area">
+
     <div class="hero-slides owl-carousel">
-        <!-- Single Hero Slide -->
+
         <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background1.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">SuperHit Movie</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">IF WISHES COULD KILL <span>IF WISHES COULD KILL</span>
-                            </h2>
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="slide-img bg-img"
+                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
             </div>
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="hero-slides-content text-center">
+
+                            <h6 data-animation="fadeInUp" data-delay="100ms">
+                                SuperHit Movie
+                            </h6>
+
+                            <h2 data-animation="fadeInUp" data-delay="300ms">
+
+                                BOOK BY THEATER
+
+                                <span>BOOK BY THEATER</span>
+
+                            </h2>
+
+                            <a data-animation="fadeInUp"
+                               data-delay="500ms"
+                               href="#"
+                               class="btn oneMusic-btn mt-50">
+
+                               Explore
+
+                               <i class="fa fa-angle-double-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Single Hero Slide -->
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-            <!-- Slide Img -->
-            <div class="slide-img bg-img" style="background-image: url(images/index.img/background2.jpg);"></div>
-            <!-- Slide Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="hero-slides-content text-center">
-                            <h6 data-animation="fadeInUp" data-delay="100ms">Upcoming Blockbuster</h6>
-                            <h2 data-animation="fadeInUp" data-delay="300ms">DHURANDHAR 2 <span>DHURANDHAR 2</span></h2>
-                
-                            <a data-animation="fadeInUp" data-delay="500ms" href="#"
-                                class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
 </section>
+
 
 <h1>Select Theater</h1>
 
 <div class="select-box">
+
     <select onchange="showTheater(this.value)">
+
         <option value="">-- Select Theater --</option>
-        <option value="t1">Cineplex Cinema</option>
-        <option value="t2">Mega Movies Hall</option>
-        <option value="t3">Star Cine Gold</option>
+
+        <?php while($theater = mysqli_fetch_array($theater_result)){ ?>
+
+            <option value="theater<?php echo $theater['theater_id']; ?>">
+
+                <?php echo $theater['name']; ?>
+
+            </option>
+
+        <?php } ?>
+
     </select>
+
 </div>
 
-<!-- THEATERS SAME AS BEFORE -->
-<div class="theater-box" id="t1">
-    <div class="theater-title">🎭 Cineplex Cinema</div>
 
-    <div class="movie-grid">
+<?php
 
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie1.jpg">
-            <h3>Avengers</h3>
-            <p>Action / Sci-Fi</p>
-            <p>⭐ Rating: 4.7 / 5</p>
-            <p>⏱ Duration: 2h 35m</p>
-            <p>🕒 Show: 10:00 AM - 1:00 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
+$theater_movie_query = "SELECT
+theaters.theater_id,
+theaters.name as theater_name,
+movies.movie_id,
+movies.title,
+movies.genre,
+movies.duration,
+movies.poster,
+shows.start_time,
+shows.end_time
 
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie2.jpg">
-            <h3>Fast 11</h3>
-            <p>Action</p>
-            <p>⭐ Rating: 4.5 / 5</p>
-            <p>⏱ Duration: 2h 20m</p>
-            <p>🕒 Show: 1:30 PM - 4:00 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
+FROM shows
+
+INNER JOIN movies
+ON shows.movie_id = movies.movie_id
+
+INNER JOIN screens
+ON shows.screen_id = screens.screen_id
+
+INNER JOIN theaters
+ON screens.theater_id = theaters.theater_id
+
+ORDER BY theaters.theater_id ASC";
+
+$movie_result = mysqli_query($connection, $theater_movie_query);
+
+$current_theater = "";
+
+?>
+
+
+<?php while($movie = mysqli_fetch_array($movie_result)){ ?>
+
+    <?php if($current_theater != $movie['theater_id']){ ?>
+
+        <?php
+        if($current_theater != ""){
+            echo "</div></div>";
+        }
+
+        $current_theater = $movie['theater_id'];
+        ?>
+
+        <div class="theater-box"
+             id="theater<?php echo $movie['theater_id']; ?>">
+
+            <div class="theater-title">
+
+                🎭 <?php echo $movie['theater_name']; ?>
+
+            </div>
+
+            <div class="movie-grid">
+
+    <?php } ?>
+
+
+    <div class="card">
+
+        <img src="../dashboard/uploads/<?php echo $movie['poster']; ?>">
+
+        <h3>
+
+            <?php echo $movie['title']; ?>
+
+        </h3>
+
+        <p>
+
+            <?php echo $movie['genre']; ?>
+
+        </p>
+
+        <p>
+
+            ⭐ Rating: 5 / 5
+
+        </p>
+
+        <p>
+
+            ⏱ Duration:
+            <?php echo $movie['duration']; ?> Min
+
+        </p>
+
+        <p>
+
+            🕒 Show:
+            <?php echo $movie['start_time']; ?>
+            -
+            <?php echo $movie['end_time']; ?>
+
+        </p>
+
+        <a href="../book-ticket/select-seat.php?id=<?php echo $movie['movie_id']; ?>"
+           class="btn">
+
+           Book Now
+
+        </a>
 
     </div>
-</div>
 
-<div class="theater-box" id="t2">
-    <div class="theater-title">🎭 Mega Movies Hall</div>
+<?php } ?>
 
-    <div class="movie-grid">
 
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie3.jpg">
-            <h3>Deadpool 3</h3>
-            <p>Action / Comedy</p>
-            <p>⭐ Rating: 4.8 / 5</p>
-            <p>⏱ Duration: 2h 10m</p>
-            <p>🕒 Show: 5:00 PM - 7:10 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
+<?php
+if($current_theater != ""){
+    echo "</div></div>";
+}
+?>
 
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie4.jpg">
-            <h3>Avatar 3</h3>
-            <p>Sci-Fi</p>
-            <p>⭐ Rating: 4.9 / 5</p>
-            <p>⏱ Duration: 3h 00m</p>
-            <p>🕒 Show: 7:30 PM - 10:30 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
-
-    </div>
-</div>
-
-<div class="theater-box" id="t3">
-    <div class="theater-title">🎭 Star Cine Gold</div>
-
-    <div class="movie-grid">
-
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie5.jpg">
-            <h3>Batman</h3>
-            <p>Action</p>
-            <p>⭐ Rating: 4.6 / 5</p>
-            <p>⏱ Duration: 2h 25m</p>
-            <p>🕒 Show: 2:00 PM - 4:25 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
-
-        <div class="card">
-            <img src="/movie-booking-master/images/theater.img/T-movie6.jpg">
-            <h3>Spider-Man</h3>
-            <p>Adventure</p>
-            <p>⭐ Rating: 4.7 / 5</p>
-            <p>⏱ Duration: 2h 15m</p>
-            <p>🕒 Show: 6:00 PM - 8:15 PM</p>
-            <button class="btn">Book Now</button>
-        </div>
-
-    </div>
-</div>
 
 <script>
+
 function showTheater(id){
-    let boxes = document.querySelectorAll('.theater-box');
-    boxes.forEach(b => b.style.display = "none");
+
+    let boxes =
+    document.querySelectorAll('.theater-box');
+
+    boxes.forEach(box => {
+
+        box.style.display = "none";
+
+    });
 
     if(id){
+
         document.getElementById(id).style.display = "block";
+
     }
+
 }
+
 </script>
 
 </body>
