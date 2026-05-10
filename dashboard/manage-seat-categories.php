@@ -36,6 +36,7 @@ $count = 1;
                     <tr>
                         <th>#</th>
                         <th>Category Name</th>
+                        <th>Price</th>
                         <th>Description</th>
                         <th width="170">Action</th>
                     </tr>
@@ -47,8 +48,19 @@ $count = 1;
 
                     <tr>
                         <td><?php echo $count++; ?></td>
-                        <td><?php echo $category['category_name']; ?></td>
-                        <td><?php echo $category['description']; ?></td>
+
+                        <td>
+                            <?php echo $category['category_name']; ?>
+                        </td>
+
+                        <td>
+                            Rs <?php echo number_format($category['category_price']); ?>
+                        </td>
+
+                        <td>
+                            <?php echo $category['description']; ?>
+                        </td>
+
                         <td>
                             <a href="edit-seat-category.php?id=<?php echo $category['category_id']; ?>" 
                                class="btn btn-warning btn-sm">

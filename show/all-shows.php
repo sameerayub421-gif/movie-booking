@@ -132,10 +132,10 @@ $result = mysqli_query($connection, $select_query);
                             <?php echo $show['end_time']; ?>
                         </p>
 
-                        <a href="../book-ticket/by-movie.php?id=<?php echo $show['movie_id']; ?>"
-                           class="btn oneMusic-btn mt-2">
-                           Book Now
-                        </a>
+                       <a href="../book-ticket/book-now.php?movie_id=<?php echo $show['movie_id']; ?>"
+class="btn oneMusic-btn">
+Book Now
+</a>
 
                     </div>
 
@@ -154,11 +154,18 @@ $result = mysqli_query($connection, $select_query);
 
 <style>
 
+body {
+    background: #000;
+    color: #ffffff;
+}
+
 .show-card{
-    border:none;
+    width: 280px;
+    border:2px solid #E50914;
+    border-radius:10px;
     overflow:hidden;
     transition:0.3s;
-    background:#f8f9fa;
+    background:#666666;
 }
 
 .show-card:hover{
@@ -177,11 +184,12 @@ $result = mysqli_query($connection, $select_query);
 
 .show-card h4{
     margin-bottom:15px;
+    color:#ffffff;
 }
 
 .show-card p{
     margin-bottom:8px;
-    color:#555;
+    color:#cccccc;
 }
 
 </style>

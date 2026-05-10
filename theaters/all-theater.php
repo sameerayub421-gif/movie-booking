@@ -17,9 +17,9 @@ $result = mysqli_query($connection, $select_query);
 
 body{
     margin:0;
-    background:#ffffff;
+    background:#000;
     font-family:Arial, sans-serif;
-    color:#333;
+    color:#ffffff;
 }
 
 /* Title */
@@ -27,6 +27,7 @@ h1{
     text-align:center;
     margin:30px 0;
     font-size:40px;
+    color:#ffffff;
 }
 
 /* Section */
@@ -41,7 +42,9 @@ h1{
 
 /* Card */
 .card{
-    background:#f8f9fa;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     padding:20px;
     border-radius:10px;
     text-align:center;
@@ -58,12 +61,14 @@ h1{
 /* icon/title */
 .card h3{
     margin-bottom:10px;
+    color:#ffffff;
 }
+
 
 /* text */
 .card p{
     margin:5px 0;
-    color:#555;
+    color:#cccccc;
     font-size:14px;
 }
 
@@ -72,15 +77,15 @@ h1{
     margin-top:10px;
     display:inline-block;
     padding:8px 12px;
-    background:#fff;
-    color:#000;
-    border:1px solid #000;
+    background:#666666;
+    color:#fff;
+    border:1px solid #666666;
     text-decoration:none;
     transition:0.3s;
 }
 
 .btn:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
     transform:translateY(-2px);
 }
@@ -88,7 +93,7 @@ h1{
 .section-title{
     text-align:center;
     margin:20px 0 40px 0;
-    color:#444;
+    color:#ffffff;
 }
 
 </style>

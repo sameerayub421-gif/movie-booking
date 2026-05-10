@@ -1,58 +1,74 @@
 <?php
 include('../base/header.php');
 
+
 $select_query = "
-SELECT movies.*, AVG(reviews.rating) as avg_rating
+SELECT
+movies.*,
+AVG(reviews.rating) as avg_rating
 FROM movies
-LEFT JOIN reviews ON movies.movie_id = reviews.movie_id
+INNER JOIN reviews
+ON movies.movie_id = reviews.movie_id
 GROUP BY movies.movie_id
+HAVING avg_rating >= 3
 ORDER BY avg_rating DESC
 ";
 
 $result = mysqli_query($connection, $select_query);
+
 ?>
 
-<section class="hero-area">
-    <div class="hero-slides owl-carousel">
+<style>
 
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
+body{
+    background:#000;
+    color:#fff;
+}
 
-            <div class="slide-img bg-img"
-                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
-            </div>
+.movie-card{
+    width:280px;
+    background:#1b1b1b;
+    border:2px solid #E50914;
+    border-radius:10px;
+    overflow:hidden;
+    transition:0.3s;
+    position:relative;
+    margin:auto;
+}
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
+.movie-card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
 
-                        <div class="hero-slides-content text-center">
+.movie-card:hover{
+    transform:translateY(-5px);
+}
 
-                            <h6>Top Rated Collection</h6>
+.movie-card h4{
+    color:#fff;
+    margin-top:15px;
+}
 
-                            <h2>
-                                BEST MOVIES
-                                <span>BEST MOVIES</span>
-                            </h2>
+.movie-card p{
+    color:#ccc;
+}
 
-                            <a href="#movies"
-                               class="btn oneMusic-btn mt-50">
-                               Explore
-                               <i class="fa fa-angle-double-right"></i>
-                            </a>
+.rating-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#E50914;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:5px;
+    font-size:14px;
+}
 
-                        </div>
+</style>
 
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<section class="section-padding-100" id="movies">
+<section class="section-padding-100">
 
     <div class="container">
 
@@ -60,9 +76,12 @@ $result = mysqli_query($connection, $select_query);
 
             <div class="col-12">
 
-                <div class="section-heading style-2">
-                    <p>Most Popular Movies</p>
+                <div class="section-heading text-center">
+
+                    <p>Highest Rated Collection</p>
+
                     <h2>Top Rated Movies</h2>
+
                 </div>
 
             </div>
@@ -71,40 +90,40 @@ $result = mysqli_query($connection, $select_query);
 
         <div class="row">
 
-            <?php while($movie = mysqli_fetch_array($result)){ ?>
+            <?php while($movie = mysqli_fetch_assoc($result)){ ?>
 
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
 
-                <div class="card movie-card mb-30">
+                <div class="movie-card">
 
-                    <span class="badge">
+                    <div class="rating-badge">
 
-                        ⭐ 
-                        <?php 
-                        if($movie['avg_rating']){
-                            echo round($movie['avg_rating'],1);
-                        }else{
-                            echo "No Rating";
-                        }
-                        ?>
+                        ⭐
+                        <?php echo round($movie['avg_rating'],1); ?>
 
-                    </span>
+                    </div>
 
                     <img src="../dashboard/uploads/<?php echo $movie['poster']; ?>">
 
-                    <div class="card-body text-center">
+                    <div class="p-3 text-center">
 
                         <h4>
+
                             <?php echo $movie['title']; ?>
+
                         </h4>
 
                         <p>
+
                             <?php echo $movie['genre']; ?>
+
                         </p>
 
-                        <a href="../book-ticket/by-movie.php?id=<?php echo $movie['movie_id']; ?>"
+                        <a href="../book-ticket/book-now.php?movie_id=<?php echo $movie['movie_id']; ?>"
                            class="btn oneMusic-btn">
+
                            Book Now
+
                         </a>
 
                     </div>
@@ -120,51 +139,6 @@ $result = mysqli_query($connection, $select_query);
     </div>
 
 </section>
-
-
-<style>
-
-.movie-card{
-    background:#f8f9fa;
-    border:none;
-    overflow:hidden;
-    transition:0.3s;
-    position:relative;
-}
-
-.movie-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.movie-card:hover{
-    transform:translateY(-5px);
-}
-
-.movie-card h4{
-    font-size:20px;
-    margin-top:10px;
-}
-
-.movie-card p{
-    color:#666;
-    font-size:14px;
-}
-
-.badge{
-    position:absolute;
-    top:10px;
-    left:10px;
-    background:#000;
-    color:#fff;
-    padding:6px 10px;
-    border-radius:5px;
-    font-size:13px;
-    z-index:10;
-}
-
-</style>
 
 <?php
 include('../base/footer.php');

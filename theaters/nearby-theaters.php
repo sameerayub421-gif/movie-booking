@@ -30,8 +30,8 @@ $result = mysqli_query($connection, $select_query);
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background:linear-gradient(to bottom, #fff, #f4f4f4);
-    color:#222;
+    background:#000;
+    color:#ffffff;
 }
 
 /* Title */
@@ -39,6 +39,7 @@ h1{
     text-align:center;
     margin:40px 0 10px 0;
     font-size:42px;
+    color:#ffffff;
 }
 
 /* Description */
@@ -46,7 +47,7 @@ p.desc{
     text-align:center;
     width:70%;
     margin:0 auto 30px auto;
-    color:#666;
+    color:#cccccc;
 }
 
 /* Search box */
@@ -58,22 +59,23 @@ p.desc{
 .search-box input{
     width:280px;
     padding:10px;
-    border:1px solid #000;
+    border:1px solid #E50914;
     outline:none;
     border-radius:6px;
 }
 
 .search-box button{
     padding:10px 14px;
-    border:1px solid #000;
-    background:#fff;
+    border:1px solid #666666;
+    background:#666666;
+    color:#fff;
     cursor:pointer;
     transition:0.3s;
     border-radius:6px;
 }
 
 .search-box button:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
 }
 
@@ -89,7 +91,9 @@ p.desc{
 
 /* Card */
 .card{
-    background:#fff;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     padding:25px;
     border-radius:15px;
     text-align:center;

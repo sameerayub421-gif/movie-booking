@@ -13,7 +13,7 @@ include('../base/header.php');
 body{
     margin:0;
     font-family:Arial;
-    background:#fff;
+    background:#000;
 }
 .login-page .header-area{
     background:#000 !important;
@@ -37,15 +37,17 @@ body{
 
 .login-box{
     width:360px;
-    background:#f8f9fa;
-    padding:30px;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:12px;
     box-shadow:0 0 15px rgba(0,0,0,0.1);
+    padding:30px;
 }
 
 h2{
     text-align:center;
     margin-bottom:20px;
+    color:#ffffff;
 }
 
 .input-box{
@@ -55,7 +57,7 @@ h2{
 .input-box input{
     width:100%;
     padding:10px;
-    border:1px solid #ddd;
+    border:1px solid #cccccc;
     border-radius:6px;
     outline:none;
 }
@@ -70,16 +72,16 @@ h2{
 .btn{
     width:100%;
     padding:10px;
-    background:#fff;
-    color:#000;
-    border:1px solid #000;
+    background:#666666;
+    color:#fff;
+    border:1px solid #666666;
     cursor:pointer;
     transition:0.3s;
     border-radius:6px;
 }
 
 .btn:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
 }
 
@@ -90,7 +92,7 @@ h2{
 }
 
 .footer-text a{
-    color:#000;
+    color:#E50914;
     font-weight:bold;
 }
 

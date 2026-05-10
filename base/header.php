@@ -105,8 +105,6 @@ $base_url = "/movie-booking-master/";
                                     <ul class="dropdown">
                                         <li><a href="<?php echo $base_url; ?>book-ticket/by-movie.php">By Movie</a></li>
                                         <li><a href="<?php echo $base_url; ?>book-ticket/by-theater.php">By Theater</a></li>
-                                        <li><a href="<?php echo $base_url; ?>book-ticket/select-seat.php">Select Seat</a></li>
-                                        <li><a href="<?php echo $base_url; ?>book-ticket/payment.php">Payment</a></li>
                                     </ul>
 
                                 </li>
@@ -139,11 +137,6 @@ $base_url = "/movie-booking-master/";
                                     <ul class="dropdown">
                                         <li><a href="<?php echo $base_url; ?>more/about-us.php">About Us</a></li>
                                         <li><a href="<?php echo $base_url; ?>more/contact.php">Contact Us</a></li>
-                                        <li><a href="<?php echo $base_url; ?>more/faq.php">FAQ</a></li>
-                                        <li><a href="<?php echo $base_url; ?>more/privacy-policy.php">Privacy Policy</a></li>
-                                        <li><a href="<?php echo $base_url; ?>more/terms.php">Terms & Conditions</a></li>
-                                        <li><a href="<?php echo $base_url; ?>reviews/latest-reviews.php">Latest Reviews</a></li>
-                                        <li><a href="<?php echo $base_url; ?>shows/upcoming-shows.php">Upcoming Shows</a></li>
                                     </ul>
 
                                 </li>

@@ -17,13 +17,14 @@ $theater_result = mysqli_query($connection, $theater_query);
 body{
     margin:0;
     font-family:Arial;
-    background:#fff;
+    background:#000;
 }
 
 /* Title */
 h1{
     text-align:center;
     margin:30px 0;
+    color:#ffffff;
 }
 
 /* Dropdown */
@@ -35,7 +36,7 @@ h1{
 select{
     padding:10px;
     width:250px;
-    border:1px solid #000;
+    border:1px solid #E50914;
 }
 
 /* Theater section */
@@ -52,7 +53,7 @@ select{
     font-weight:800;
     margin-bottom:25px;
     text-align:center;
-    color:#111;
+    color:#ffffff;
     letter-spacing:0.5px;
     text-transform:uppercase;
 }
@@ -70,7 +71,9 @@ select{
 
 /* Card */
 .card{
-    background:#f8f9fa;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:10px;
     overflow:hidden;
     text-align:center;
@@ -93,11 +96,12 @@ select{
 /* Text */
 .card h3{
     margin:10px 0 5px;
+    color:#ffffff;
 }
 
 .card p{
     font-size:13px;
-    color:#555;
+    color:#cccccc;
     margin:3px 0;
 }
 
@@ -106,16 +110,16 @@ select{
     display:inline-block;
     margin:10px 0 15px;
     padding:7px 12px;
-    border:1px solid #000;
-    background:#fff;
-    color:#000;
+    border:1px solid #666666;
+    background:#666666;
+    color:#fff;
     text-decoration:none;
     cursor:pointer;
     transition:0.3s;
 }
 
 .btn:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
 }
 

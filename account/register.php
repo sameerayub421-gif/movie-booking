@@ -13,7 +13,7 @@ include('../base/header.php');
 body{
     margin:0;
     font-family:Arial;
-    background:#fff;
+    background:#000;
 }
 
 /* CENTER WRAPPER */
@@ -28,7 +28,8 @@ body{
 /* CARD */
 .register-box{
     width:380px;
-    background:#f8f9fa;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:12px;
     box-shadow:0 0 15px rgba(0,0,0,0.1);
 }
@@ -37,6 +38,7 @@ body{
 .register-box h2{
     text-align:center;
     margin-bottom:20px;
+    color:#ffffff;
 }
 
 /* INPUTS */
@@ -47,7 +49,7 @@ body{
 .input-box input{
     width:100%;
     padding:10px;
-    border:1px solid #ddd;
+    border:1px solid #cccccc;
     border-radius:6px;
     outline:none;
 }
@@ -56,16 +58,16 @@ body{
 .btn{
     width:100%;
     padding:10px;
-    background:#fff;
-    color:#000;
-    border:1px solid #000;
+    background:#666666;
+    color:#fff;
+    border:1px solid #666666;
     cursor:pointer;
     transition:0.3s;
     border-radius:6px;
 }
 
 .btn:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
     transform:translateY(-2px);
 }
@@ -78,7 +80,7 @@ body{
 }
 
 .footer-text a{
-    color:#000;
+    color:#E50914;
     font-weight:bold;
     text-decoration:none;
 }

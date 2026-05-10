@@ -89,6 +89,11 @@ Book Now
 
 <style>
 
+body {
+    background: #000;
+    color: #ffffff;
+}
+
 .movie-poster{
     width:100%;
     height:450px;
@@ -96,7 +101,9 @@ Book Now
 }
 
 .single-event-area{
-    background:#111;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:10px;
     overflow:hidden;
     transition:0.3s;
@@ -117,7 +124,7 @@ Book Now
 }
 
 .event-text p{
-    color:#bbb;
+    color:#cccccc;
 }
 
 .event-meta-data{

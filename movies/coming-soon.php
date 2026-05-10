@@ -124,8 +124,15 @@ style="background-image: url('../img/bg-img/breadcumb.jpg');">
 
 <style>
 
+body {
+    background: #000;
+    color: #ffffff;
+}
+
 .single-movie-card{
-    background:#111;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:12px;
     overflow:hidden;
     transition:0.3s;
@@ -165,7 +172,7 @@ style="background-image: url('../img/bg-img/breadcumb.jpg');">
 }
 
 .duration{
-    color:#bbb;
+    color:#cccccc;
     margin-bottom:15px;
 }
 

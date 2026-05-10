@@ -25,11 +25,17 @@ $reviews_result = mysqli_query($connection, $reviews_query);
 
 <!-- ##### Hero Area Start ##### -->
  <style>
+body {
+    background: #000;
+    color: #ffffff;
+}
+
     .movie-poster{
     width: 100%;
     height: 350px;
     object-fit: cover;
     border-radius: 10px;
+    border: 2px solid #E50914;
 }
  </style>
 <section class="hero-area">

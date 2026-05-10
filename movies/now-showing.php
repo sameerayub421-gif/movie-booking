@@ -68,8 +68,15 @@ $movies_result = mysqli_query($connection, $movies_query);
 
 <style>
 
+body {
+    background: #000;
+    color: #ffffff;
+}
+
 .single-movie-card{
-    background:#111;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     border-radius:12px;
     overflow:hidden;
     transition:0.3s;
@@ -102,13 +109,14 @@ $movies_result = mysqli_query($connection, $movies_query);
 }
 
 .duration{
-    color:#bbb;
+    color:#cccccc;
     margin-bottom:10px;
 }
 
 .rating{
     margin-bottom:15px;
     font-size:18px;
+    color:#ffffff;
 }
 
 .oneMusic-btn{

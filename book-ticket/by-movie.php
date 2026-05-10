@@ -14,17 +14,16 @@ $result = mysqli_query($connection, $select_query);
 
 body{
     margin:0;
-    background:#fff;
+    background:#000;
     font-family:Arial;
 }
 
-/* Title */
 h1{
     text-align:center;
     margin:30px 0;
+    color:#ffffff;
 }
 
-/* Search box */
 .search-box{
     text-align:center;
     margin-bottom:30px;
@@ -33,11 +32,10 @@ h1{
 select{
     padding:10px;
     width:250px;
-    border:1px solid #000;
+    border:1px solid #E50914;
     outline:none;
 }
 
-/* Container */
 .container{
     width:100%;
     display:flex;
@@ -47,10 +45,10 @@ select{
     padding-bottom:50px;
 }
 
-/* Card */
-.card{
-    width:250px;
-    background:#f8f9fa;
+card{
+    width:280px;
+    background:#666666;
+    border:2px solid #E50914;
     text-align:center;
     border-radius:10px;
     overflow:hidden;
@@ -60,20 +58,17 @@ select{
     transition:0.3s;
 }
 
-/* Hover */
 .card:hover{
     transform:translateY(-5px);
     box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Image */
 .card img{
     width:100%;
     height:320px;
     object-fit:cover;
 }
 
-/* Badge */
 .badge{
     position:absolute;
     top:10px;
@@ -85,44 +80,41 @@ select{
     border-radius:5px;
 }
 
-/* Text */
 .card h3{
     margin:10px 0 5px 0;
+    color:#ffffff;
 }
 
 .genre{
     font-size:13px;
-    color:#777;
+    color:#cccccc;
 }
 
-/* Rating */
 .rating{
     margin-top:5px;
     font-size:13px;
     color:#f39c12;
 }
 
-/* Time */
 .time{
     font-size:12px;
-    color:#555;
+    color:#cccccc;
     margin-bottom:5px;
 }
 
-/* Button */
 .book-btn{
     display:inline-block;
     margin:10px 0 15px;
     padding:8px 12px;
-    background:#fff;
-    border:1px solid #000;
-    color:#000;
+    background:#666666;
+    border:1px solid #666666;
+    color:#fff;
     text-decoration:none;
     transition:0.3s;
 }
 
 .book-btn:hover{
-    background:#111;
+    background:#E50914;
     color:#fff;
 }
 
@@ -212,8 +204,7 @@ select{
 
 <?php
 
-$movie_query = "SELECT * FROM movies ORDER BY movie_id DESC";
-$movie_result = mysqli_query($connection, $movie_query);
+mysqli_data_seek($result, 0);
 
 ?>
 

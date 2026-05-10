@@ -13,8 +13,8 @@ include('../base/header.php');
 body{
     margin:0;
     font-family:Arial;
-    background:#fff;
-    color:#333;
+    background:#000;
+    color:#ffffff;
 }
 
 /* PAGE TITLE */
@@ -23,13 +23,14 @@ body{
     margin:40px 0 10px;
     font-size:42px;
     font-weight:bold;
+    color:#ffffff;
 }
 
 .sub-title{
     text-align:center;
     width:70%;
     margin:auto;
-    color:#666;
+    color:#cccccc;
     line-height:1.6;
     margin-bottom:40px;
 }
@@ -42,7 +43,9 @@ body{
 
 /* CARDS */
 .card{
-    background:#f8f9fa;
+    width: 280px;
+    background:#666666;
+    border:2px solid #E50914;
     padding:25px;
     margin-bottom:20px;
     border-radius:12px;
@@ -58,12 +61,13 @@ body{
 .card h2{
     margin-bottom:10px;
     font-size:22px;
+    color:#ffffff;
 }
 
 /* TEXT */
 .card p{
     line-height:1.6;
-    color:#555;
+    color:#cccccc;
 }
 
 /* GRID FEATURES */
@@ -75,7 +79,7 @@ body{
 }
 
 .feature-box{
-    background:#fff;
+    background:#333333;
     padding:15px;
     border-radius:8px;
     border:1px solid #eee;
