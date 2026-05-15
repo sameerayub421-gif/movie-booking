@@ -13,6 +13,7 @@ if(isset($_POST['signin'])){
 
     if(mysqli_num_rows($result) > 0){
         $fetch = mysqli_fetch_array($result);
+        $_SESSION['user_id'] = $fetch['user_id'];
         $_SESSION['email'] = $fetch['email'];
         $_SESSION['password'] = $fetch['password'];
         $_SESSION['role'] = $fetch['role'];

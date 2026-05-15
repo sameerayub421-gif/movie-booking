@@ -66,65 +66,6 @@ $movies_result = mysqli_query($connection, $movies_query);
     </div>
 </section>
 
-<style>
-
-body {
-    background: #000;
-    color: #ffffff;
-}
-
-.single-movie-card{
-    width: 280px;
-    background:#666666;
-    border:2px solid #E50914;
-    border-radius:12px;
-    overflow:hidden;
-    transition:0.3s;
-    height:100%;
-}
-
-.single-movie-card:hover{
-    transform:translateY(-5px);
-}
-
-.movie-poster img{
-    width:100%;
-    height:400px;
-    object-fit:cover;
-}
-
-.movie-info{
-    padding:20px;
-    text-align:center;
-}
-
-.movie-info h5{
-    color:#fff;
-    margin-bottom:10px;
-}
-
-.genre{
-    color:#ff0000;
-    margin-bottom:5px;
-}
-
-.duration{
-    color:#cccccc;
-    margin-bottom:10px;
-}
-
-.rating{
-    margin-bottom:15px;
-    font-size:18px;
-    color:#ffffff;
-}
-
-.oneMusic-btn{
-    width:100%;
-}
-
-</style>
-
 <?php
 include('../base/footer.php');
 ?>

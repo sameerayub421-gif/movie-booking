@@ -151,49 +151,6 @@ Book Now
 
 </section>
 
-
-<style>
-
-body {
-    background: #000;
-    color: #ffffff;
-}
-
-.show-card{
-    width: 280px;
-    border:2px solid #E50914;
-    border-radius:10px;
-    overflow:hidden;
-    transition:0.3s;
-    background:#666666;
-}
-
-.show-card:hover{
-    transform:translateY(-5px);
-}
-
-.show-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.show-card .card-body{
-    padding:20px;
-}
-
-.show-card h4{
-    margin-bottom:15px;
-    color:#ffffff;
-}
-
-.show-card p{
-    margin-bottom:8px;
-    color:#cccccc;
-}
-
-</style>
-
 <?php
 include('../base/footer.php');
 ?>

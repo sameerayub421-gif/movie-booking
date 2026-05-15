@@ -5,7 +5,7 @@ include('../base/header.php');
 
 if(isset($_POST['submit_review'])){
 
-    $user_id = 1;
+    $user_id = $_SESSION['user_id'];
 
     $movie_id = $_POST['movie_id'];
 

@@ -1,7 +1,8 @@
 <?php
+session_start();
 include('../base/header.php');
 
-$user_id = 1;
+$user_id = $_SESSION['user_id'];
 
 
 $show_id         = $_POST['show_id'];

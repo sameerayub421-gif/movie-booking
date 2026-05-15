@@ -3,7 +3,6 @@ include('./base/header.php');
 
 $id = $_GET['id'];
 
-/* CURRENT PRICE */
 
 $select_query = "SELECT * FROM show_prices
 WHERE price_id='$id'";
@@ -12,7 +11,6 @@ $result = mysqli_query($connection, $select_query);
 
 $price = mysqli_fetch_array($result);
 
-/* SHOWS */
 
 $show_query = "SELECT 
 shows.*,
@@ -25,13 +23,11 @@ ON shows.movie_id = movies.movie_id";
 
 $show_result = mysqli_query($connection, $show_query);
 
-/* CATEGORIES */
 
 $category_query = "SELECT * FROM seat_categories";
 
 $category_result = mysqli_query($connection, $category_query);
 
-/* UPDATE */
 
 if(isset($_POST['update_price'])){
 
@@ -41,7 +37,6 @@ if(isset($_POST['update_price'])){
 
     $extra_price    = $_POST['extra_price'];
 
-    /* SHOW PRICE */
 
     $show_price_query = "SELECT * FROM shows
     WHERE show_id='$show_id'";
@@ -55,7 +50,6 @@ if(isset($_POST['update_price'])){
     $show_price =
     $show_data['price'];
 
-    /* CATEGORY PRICE */
 
     $category_price_query = "SELECT * FROM seat_categories
     WHERE category_id='$category_id'";
@@ -69,14 +63,12 @@ if(isset($_POST['update_price'])){
     $category_price =
     $category_data['category_price'];
 
-    /* FINAL PRICE */
 
     $final_price =
     $show_price +
     $category_price +
     $extra_price;
 
-    /* UPDATE QUERY */
 
     $update_query = "UPDATE show_prices SET
 

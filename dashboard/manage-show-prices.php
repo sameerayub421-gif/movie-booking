@@ -13,7 +13,6 @@ if(isset($_GET['delete'])){
     </script>";
 }
 
-/* SHOW + MOVIE + CATEGORY */
 
 $select_query = "SELECT 
 show_prices.*,

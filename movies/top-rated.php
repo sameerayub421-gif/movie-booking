@@ -18,56 +18,6 @@ $result = mysqli_query($connection, $select_query);
 
 ?>
 
-<style>
-
-body{
-    background:#000;
-    color:#fff;
-}
-
-.movie-card{
-    width:280px;
-    background:#1b1b1b;
-    border:2px solid #E50914;
-    border-radius:10px;
-    overflow:hidden;
-    transition:0.3s;
-    position:relative;
-    margin:auto;
-}
-
-.movie-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-}
-
-.movie-card:hover{
-    transform:translateY(-5px);
-}
-
-.movie-card h4{
-    color:#fff;
-    margin-top:15px;
-}
-
-.movie-card p{
-    color:#ccc;
-}
-
-.rating-badge{
-    position:absolute;
-    top:10px;
-    left:10px;
-    background:#E50914;
-    color:#fff;
-    padding:5px 12px;
-    border-radius:5px;
-    font-size:14px;
-}
-
-</style>
-
 <section class="section-padding-100">
 
     <div class="container">

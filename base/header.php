@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('/movie-booking-master/dashboard/config/db_connection.php');
 
 $base_url = "/movie-booking-master/";
@@ -17,16 +18,10 @@ $base_url = "/movie-booking-master/";
 
 <link rel="icon" href="<?php echo $base_url; ?>img/core-img/favicon.ico">
 
-<link rel="stylesheet" href="<?php echo $base_url; ?>style.css">
+<link rel="stylesheet" href="<?php echo $base_url; ?>style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
-
-<div class="preloader d-flex align-items-center justify-content-center">
-    <div class="circle-preloader">
-        <img src="<?php echo $base_url; ?>img/core-img/compact-disc.png" alt="">
-    </div>
-</div>
 
 <header class="header-area">
 
@@ -123,7 +118,7 @@ $base_url = "/movie-booking-master/";
                                     <a href="#">Account</a>
 
                                     <ul class="dropdown">
-                                        <li><a href="<?php echo $base_url; ?>account/profile.php">My Profile</a></li>
+                                        <li><a href="<?php echo $base_url; ?>account/my-profile.php">My Profile</a></li>
                                         <li><a href="<?php echo $base_url; ?>account/my-bookings.php">My Bookings</a></li>
                                         <li><a href="<?php echo $base_url; ?>account/payment-history.php">Payment History</a></li>
                                         <li><a href="<?php echo $base_url; ?>account/logout.php">Logout</a></li>

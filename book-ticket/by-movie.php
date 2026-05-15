@@ -204,7 +204,8 @@ card{
 
 <?php
 
-mysqli_data_seek($result, 0);
+$select_query = "SELECT * FROM movies ORDER BY movie_id DESC";
+$movie_result = mysqli_query($connection, $select_query);
 
 ?>
 

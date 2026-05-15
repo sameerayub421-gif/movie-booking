@@ -2,101 +2,75 @@
 include('../base/header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>About Us</title>
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url('<?php echo $base_url; ?>img/bg-img/breadcumb.jpg');">
+    <div class="bradcumbContent">
+        <p>Learn about our story</p>
+        <h2>About Us</h2>
+    </div>
+</section>
 
-<style>
+<section class="about-section">
+    <div class="container">
 
-body{
-    margin:0;
-    font-family:Arial;
-    background:#000;
-    color:#ffffff;
-}
+        <div class="row mb-50">
+            <div class="col-12">
+                <div class="section-heading style-2 text-center">
+                    <p>Welcome to CinemaHub</p>
+                    <h2>About Our Platform</h2>
+                </div>
+            </div>
+        </div>
 
-/* PAGE TITLE */
-.page-title{
-    text-align:center;
-    margin:40px 0 10px;
-    font-size:42px;
-    font-weight:bold;
-    color:#ffffff;
-}
+        <div class="row">
+            <div class="col-12 col-md-6 mb-30">
+                <div class="about-box">
+                    <h3>🎬 Our Mission</h3>
+                    <p>
+                        We aim to revolutionize the movie booking experience by providing a seamless, user-friendly platform 
+                        where movie lovers can discover, review, and book tickets to their favorite films.
+                    </p>
+                    <p>
+                        Our commitment is to bring cinema closer to everyone and make entertainment accessible with just a few clicks.
+                    </p>
+                </div>
+            </div>
 
-.sub-title{
-    text-align:center;
-    width:70%;
-    margin:auto;
-    color:#cccccc;
-    line-height:1.6;
-    margin-bottom:40px;
-}
+            <div class="col-12 col-md-6 mb-30">
+                <div class="about-box">
+                    <h3>⭐ Our Vision</h3>
+                    <p>
+                        To become the leading online movie booking platform in the region, known for innovation, reliability, 
+                        and exceptional customer service.
+                    </p>
+                    <p>
+                        We strive to connect audiences with cinemas while providing valuable insights through reviews and ratings.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-/* SECTION WRAPPER */
-.section{
-    width:85%;
-    margin:auto;
-}
+        <div class="row mt-50">
+            <div class="col-12">
+                <div class="about-box">
+                    <h3>🌟 Why Choose Us?</h3>
+                    <ul style="margin-left: 0; padding-left: 20px;">
+                        <li>✓ Easy Online Booking - Book tickets in seconds</li>
+                        <li>✓ Real-Time Seat Selection - Choose your perfect seats</li>
+                        <li>✓ Secure Payments - Safe and encrypted transactions</li>
+                        <li>✓ Community Reviews - Read and write movie reviews</li>
+                        <li>✓ Movie Information - Detailed information about all movies</li>
+                        <li>✓ Theater Details - Find theaters near you with complete information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-/* CARDS */
-.card{
-    width: 280px;
-    background:#666666;
-    border:2px solid #E50914;
-    padding:25px;
-    margin-bottom:20px;
-    border-radius:12px;
-    box-shadow:0 0 12px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
+    </div>
+</section>
 
-.card:hover{
-    transform:translateY(-5px);
-}
-
-/* HEADINGS */
-.card h2{
-    margin-bottom:10px;
-    font-size:22px;
-    color:#ffffff;
-}
-
-/* TEXT */
-.card p{
-    line-height:1.6;
-    color:#cccccc;
-}
-
-/* GRID FEATURES */
-.features{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:15px;
-}
-
-.feature-box{
-    background:#333333;
-    padding:15px;
-    border-radius:8px;
-    border:1px solid #eee;
-    font-size:14px;
-}
-
-/* HIGHLIGHT */
-.highlight{
-    font-weight:bold;
-    color:#000;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .features{
-        grid-template-columns:1fr;
-    }
+<?php
+include('../base/footer.php');
+?>
 }
 
 </style>
