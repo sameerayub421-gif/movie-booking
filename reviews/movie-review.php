@@ -1,7 +1,6 @@
 <?php
 include('../base/header.php');
 
-// Movie query waisi hi rahegi
 $movie_query = "SELECT DISTINCT movies.* FROM movies INNER JOIN reviews ON movies.movie_id = reviews.movie_id ORDER BY movies.movie_id DESC";
 $movie_result = mysqli_query($connection, $movie_query);
 ?>
@@ -28,13 +27,11 @@ $movie_result = mysqli_query($connection, $movie_query);
         while($movie = mysqli_fetch_assoc($movie_result)){
             $movie_id = $movie['movie_id'];
             
-            // Average Rating Query
             $avg_query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = '$movie_id'";
             $avg_result = mysqli_query($connection, $avg_query);
             $avg_data = mysqli_fetch_assoc($avg_result);
             $avg_rating = round($avg_data['avg_rating'], 1);
             
-            // Review Query (Database columns ke mutabiq)
             $review_query = "SELECT reviews.*, users.name FROM reviews 
                             INNER JOIN users ON reviews.user_id = users.user_id 
                             WHERE reviews.movie_id = '$movie_id' 
@@ -59,17 +56,14 @@ $movie_result = mysqli_query($connection, $movie_query);
                                         <strong style="color: #fff;"><?php echo $review['name']; ?></strong>
                                         <span style="color: gold; font-size: 16px; margin-left: 10px;">
                                             <?php 
-                                            // Star logic
                                             for($i=1; $i<=5; $i++){
                                                 echo ($i <= $review['rating']) ? "⭐" : "☆";
                                             }
                                             ?>
                                         </span>
                                     </div>
-                                    <!-- FIX 1: 'review_text' ko 'comment' kar diya -->
                                     <p style="color: #ccc; line-height: 1.6;"><?php echo $review['comment']; ?></p>
                                     
-                                    <!-- FIX 2: 'review_date' ko 'created_at' kar diya -->
                                     <small style="color: #999;"><?php echo date('d M, Y', strtotime($review['created_at'])); ?></small>
                                 </div>
                             </div>

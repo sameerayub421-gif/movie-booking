@@ -145,60 +145,7 @@ select{
 
 <body>
 
-<section class="hero-area">
 
-    <div class="hero-slides owl-carousel">
-
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-
-            <div class="slide-img bg-img"
-                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
-            </div>
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-12">
-
-                        <div class="hero-slides-content text-center">
-
-                            <h6 data-animation="fadeInUp" data-delay="100ms">
-                                SuperHit Movie
-                            </h6>
-
-                            <h2 data-animation="fadeInUp" data-delay="300ms">
-
-                                BOOK BY THEATER
-
-                                <span>BOOK BY THEATER</span>
-
-                            </h2>
-
-                            <a data-animation="fadeInUp"
-                               data-delay="500ms"
-                               href="#"
-                               class="btn oneMusic-btn mt-50">
-
-                               Explore
-
-                               <i class="fa fa-angle-double-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <h1>Select Theater</h1>

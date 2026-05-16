@@ -1,7 +1,6 @@
 <?php
 include('../base/header.php');
 
-/* INSERT REVIEW */
 
 if(isset($_POST['submit_review'])){
 
@@ -47,7 +46,6 @@ if(isset($_POST['submit_review'])){
     ";
 }
 
-/* MOVIES */
 
 $movie_query = "SELECT * FROM movies";
 
@@ -130,7 +128,6 @@ textarea{
         Movie Ratings & Reviews
     </h1>
 
-    <!-- REVIEW FORM -->
 
     <div class="review-form">
 
@@ -141,7 +138,6 @@ textarea{
         <form action=""
               method="POST">
 
-            <!-- MOVIE -->
 
             <select name="movie_id" required>
 
@@ -161,7 +157,6 @@ textarea{
 
             </select>
 
-            <!-- RATING -->
 
             <select name="rating" required>
 
@@ -177,7 +172,6 @@ textarea{
 
             </select>
 
-            <!-- COMMENT -->
 
             <textarea
             name="comment"
@@ -195,8 +189,6 @@ textarea{
         </form>
 
     </div>
-
-    <!-- ALL REVIEWS -->
 
     <?php
 

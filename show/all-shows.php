@@ -28,50 +28,7 @@ ORDER BY shows.show_date ASC";
 $result = mysqli_query($connection, $select_query);
 ?>
 
-<section class="hero-area">
 
-    <div class="hero-slides owl-carousel">
-
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-
-            <div class="slide-img bg-img"
-                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
-            </div>
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-12">
-
-                        <div class="hero-slides-content text-center">
-
-                            <h6>Movie Shows</h6>
-
-                            <h2>
-                                ALL SHOWS
-                                <span>ALL SHOWS</span>
-                            </h2>
-
-                            <a href="#shows"
-                               class="btn oneMusic-btn mt-50">
-                               Explore
-                               <i class="fa fa-angle-double-right"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <section class="section-padding-100" id="shows">

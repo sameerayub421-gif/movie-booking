@@ -123,62 +123,10 @@ card{
 
 <body>
 
-<section class="hero-area">
-
-    <div class="hero-slides owl-carousel">
-
-        <div class="single-hero-slide d-flex align-items-center justify-content-center">
-
-            <div class="slide-img bg-img"
-                 style="background-image: url(/movie-booking-master/images/index.img/background1.jpg);">
-            </div>
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-12">
-
-                        <div class="hero-slides-content text-center">
-
-                            <h6 data-animation="fadeInUp" data-delay="100ms">
-                                SuperHit Movie
-                            </h6>
-
-                            <h2 data-animation="fadeInUp" data-delay="300ms">
-
-                                SELECT MOVIE
-
-                                <span>SELECT MOVIE</span>
-
-                            </h2>
-
-                            <a data-animation="fadeInUp"
-                               data-delay="500ms"
-                               href="#"
-                               class="btn oneMusic-btn mt-50">
-
-                               Explore
-
-                               <i class="fa fa-angle-double-right"></i>
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
 
 
+
+        <?php while($movie = mysqli_fetch_array($result)){ ?>
 <h1>Select Movie</h1>
 
 <div class="search-box">
@@ -187,7 +135,6 @@ card{
 
         <option value="">-- Select Movie --</option>
 
-        <?php while($movie = mysqli_fetch_array($result)){ ?>
 
             <option value="movie<?php echo $movie['movie_id']; ?>">
 

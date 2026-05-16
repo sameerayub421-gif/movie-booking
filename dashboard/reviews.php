@@ -1,17 +1,6 @@
 <?php
 include('./base/header.php');
 
-if(isset($_GET['delete'])){
-    $id = $_GET['delete'];
-
-    $delete_query = "DELETE FROM reviews WHERE review_id='$id'";
-    mysqli_query($connection, $delete_query);
-
-    echo "<script>
-        alert('Review Deleted Successfully');
-        window.location='reviews.php';
-    </script>";
-}
 
 $select_query = "SELECT reviews.*, users.name, movies.title
                  FROM reviews
@@ -38,7 +27,6 @@ $count = 1;
                         <th>Rating</th>
                         <th>Review</th>
                         <th>Date</th>
-                        <th width="120">Action</th>
                     </tr>
                 </thead>
 
@@ -48,18 +36,29 @@ $count = 1;
 
                     <tr>
                         <td><?php echo $count++; ?></td>
-                        <td><?php echo $review['name']; ?></td>
-                        <td><?php echo $review['title']; ?></td>
-                        <td><?php echo $review['rating']; ?></td>
-                        <td><?php echo $review['review_text']; ?></td>
-                        <td><?php echo $review['review_date']; ?></td>
+
                         <td>
-                            <a href="reviews.php?delete=<?php echo $review['review_id']; ?>"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Delete this review?')">
-                                Delete
-                            </a>
+                            <?php echo $review['name']; ?>
                         </td>
+
+                        <td>
+                            <?php echo $review['title']; ?>
+                        </td>
+
+                        <td>
+                            <?php echo $review['rating']; ?>/5
+                        </td>
+
+                        <td>
+                            <?php echo $review['comment']; ?>
+                        </td>
+
+                        <td>
+                            <?php echo $review['created_at']; ?>
+                        </td>
+
+                
+
                     </tr>
 
                     <?php } ?>

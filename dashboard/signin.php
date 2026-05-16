@@ -1,5 +1,9 @@
 <?php
+
+session_start();
+
 include('./config/db_connection.php');
+
 if(isset($_POST['signin'])){
 
     $email    = $_POST['email'];
@@ -12,34 +16,45 @@ if(isset($_POST['signin'])){
     $result = mysqli_query($connection, $select_query);
 
     if(mysqli_num_rows($result) > 0){
+
         $fetch = mysqli_fetch_array($result);
+
+        /* SESSION */
+
         $_SESSION['user_id'] = $fetch['user_id'];
-        $_SESSION['email'] = $fetch['email'];
-        $_SESSION['password'] = $fetch['password'];
-        $_SESSION['role'] = $fetch['role'];
+        $_SESSION['email']   = $fetch['email'];
+        $_SESSION['role']    = $fetch['role'];
+
+        /* ADMIN LOGIN */
 
         if($_SESSION['role'] == 'admin'){
+
             echo "<script>
-            alert('Logged in as Admin');
-        </script>";
-            header('location: index.php');
-        }
-        else {
-            echo "<script>
-            alert('Logged in as User');
-            location.assign('../index.php');
-        </script>";
-           
+                alert('Logged in as Admin');
+                window.location='index.php';
+            </script>";
+
         }
 
+        /* USER LOGIN */
 
+        else{
+
+            echo "<script>
+                alert('Logged in as User');
+                window.location='../index.php';
+            </script>";
+
+        }
 
     }else{
 
         echo "<script>
             alert('Invalid Email or Password');
         </script>";
+
     }
+
 }
 ?>
 
@@ -47,69 +62,93 @@ if(isset($_POST['signin'])){
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+
+    <title>Movie Admin Login</title>
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
-    <!-- Icon Font Stylesheet -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
+    <!-- Style -->
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+
 <div class="container-fluid position-relative d-flex p-0">
 
     <div class="container-fluid">
-        <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+
+        <div class="row h-100 align-items-center justify-content-center"
+             style="min-height: 100vh;">
 
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
 
                 <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
+
                         <h3 class="text-primary">
-                            <i class="fa fa-user-edit me-2"></i>Cinema Admin
+
+                            <i class="fa fa-user-edit me-2"></i>
+
+                            Cinema Admin
+
                         </h3>
 
-                        <h3>Sign In</h3>
+                        <h3>
+                            Sign In
+                        </h3>
+
                     </div>
 
                     <form method="POST">
 
                         <div class="form-floating mb-3">
-                            <input type="email" name="email"
-                                   class="form-control"
-                                   placeholder="Email" required>
 
-                            <label>Email Address</label>
+                            <input type="email"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="Email"
+                                   required>
+
+                            <label>
+                                Email Address
+                            </label>
+
                         </div>
 
                         <div class="form-floating mb-4">
-                            <input type="password" name="password"
-                                   class="form-control"
-                                   placeholder="Password" required>
 
-                            <label>Password</label>
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Password"
+                                   required>
+
+                            <label>
+                                Password
+                            </label>
+
                         </div>
 
                         <button type="submit"
@@ -117,6 +156,7 @@ if(isset($_POST['signin'])){
                                 class="btn btn-primary py-3 w-100 mb-4">
 
                             Sign In
+
                         </button>
 
                     </form>
@@ -124,23 +164,21 @@ if(isset($_POST['signin'])){
                 </div>
 
             </div>
+
         </div>
+
     </div>
+
 </div>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- JS -->
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/main.js"></script>
+
 </body>
 
 </html>
