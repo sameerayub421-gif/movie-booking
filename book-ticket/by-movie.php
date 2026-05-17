@@ -7,6 +7,7 @@ $result = mysqli_query($connection, $select_query);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 
@@ -34,6 +35,8 @@ select{
     width:250px;
     border:1px solid #E50914;
     outline:none;
+    background:#111;
+    color:#fff;
 }
 
 .container{
@@ -45,22 +48,23 @@ select{
     padding-bottom:50px;
 }
 
-card{
+/* FIXED */
+.card{
     width:280px;
-    background:#666666;
+    background:#111;
     border:2px solid #E50914;
     text-align:center;
     border-radius:10px;
     overflow:hidden;
     display:none;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
     position:relative;
     transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
 }
 
 .card img{
@@ -106,27 +110,31 @@ card{
     display:inline-block;
     margin:10px 0 15px;
     padding:8px 12px;
-    background:#666666;
-    border:1px solid #666666;
+    background:#E50914;
+    border:1px solid #E50914;
     color:#fff;
     text-decoration:none;
     transition:0.3s;
+    border-radius:5px;
 }
 
 .book-btn:hover{
-    background:#E50914;
+    background:#b20710;
     color:#fff;
+}
+
+.no-movie{
+    width:100%;
+    text-align:center;
+    color:#999;
+    margin-top:30px;
+    font-size:18px;
 }
 
 </style>
 </head>
 
-<body>
 
-
-
-
-        <?php while($movie = mysqli_fetch_array($result)){ ?>
 <h1>Select Movie</h1>
 
 <div class="search-box">
@@ -135,6 +143,7 @@ card{
 
         <option value="">-- Select Movie --</option>
 
+        <?php while($movie = mysqli_fetch_array($result)){ ?>
 
             <option value="movie<?php echo $movie['movie_id']; ?>">
 
@@ -148,17 +157,17 @@ card{
 
 </div>
 
-
-<?php
-
-$select_query = "SELECT * FROM movies ORDER BY movie_id DESC";
-$movie_result = mysqli_query($connection, $select_query);
-
-?>
+<?php mysqli_data_seek($result, 0); ?>
 
 <div class="container">
 
-<?php while($movie = mysqli_fetch_array($movie_result)){ ?>
+    <div class="no-movie" id="noMovie">
+
+        Please Select A Movie
+
+    </div>
+
+<?php while($movie = mysqli_fetch_array($result)){ ?>
 
     <div class="card"
          id="movie<?php echo $movie['movie_id']; ?>">
@@ -208,7 +217,6 @@ $movie_result = mysqli_query($connection, $select_query);
 
 </div>
 
-
 <script>
 
 function showMovie(){
@@ -218,6 +226,9 @@ function showMovie(){
 
     let cards =
     document.querySelectorAll(".card");
+
+    let noMovie =
+    document.getElementById("noMovie");
 
     cards.forEach(card => {
 
@@ -229,14 +240,18 @@ function showMovie(){
 
         document.getElementById(value).style.display = "block";
 
+        noMovie.style.display = "none";
+
+    }else{
+
+        noMovie.style.display = "block";
+
     }
 
 }
 
 </script>
 
-</body>
-</html>
 
 <?php
 include('../base/footer.php');

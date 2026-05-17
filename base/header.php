@@ -34,7 +34,7 @@ $base_url = "/movie-booking-master/";
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <a href="<?php echo $base_url; ?>index.php" class="nav-brand">
-                        <img src="<?php echo $base_url; ?>img/core-img/logo.png" alt="">
+                        <img src="<?php echo $base_url; ?>my-logo.png" alt="">
                     </a>
 
                     <div class="classy-navbar-toggler">
@@ -121,7 +121,6 @@ $base_url = "/movie-booking-master/";
                                     <ul class="dropdown">
                                         <li><a href="<?php echo $base_url; ?>account/my-profile.php">My Profile</a></li>
                                         <li><a href="<?php echo $base_url; ?>account/my-bookings.php">My Bookings</a></li>
-                                        <li><a href="<?php echo $base_url; ?>account/payment-history.php">Payment History</a></li>
                                         <li><a href="<?php echo $base_url; ?>account/logout.php">Logout</a></li>
                                     </ul>
 

@@ -392,20 +392,35 @@ img {
   .header-area .oneMusic-main-menu {
     position: relative;
     width: 100%;
-    height: 85px;
+    height: 110px;
     background-color: transparent; }
     @media only screen and (max-width: 767px) {
       .header-area .oneMusic-main-menu {
-        height: 70px; } }
+        height: 90px; } }
     .header-area .oneMusic-main-menu .classy-nav-container {
       background-color: transparent; }
     .header-area .oneMusic-main-menu .classy-navbar {
       background-color: transparent;
-      height: 85px;
+      height: 110px;
       padding: 0; }
       @media only screen and (max-width: 767px) {
         .header-area .oneMusic-main-menu .classy-navbar {
-          height: 70px; } }
+          height: 90px; } }
+      .header-area .oneMusic-main-menu .classy-navbar .nav-brand {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-right: 30px;
+        padding: 0; }
+      .header-area .oneMusic-main-menu .classy-navbar .nav-brand img {
+        max-height: 105px;
+        max-width: 240px;
+        width: auto;
+        display: block; }
+      @media only screen and (max-width: 767px) {
+        .header-area .oneMusic-main-menu .classy-navbar .nav-brand img {
+          max-height: 80px;
+          max-width: 180px; } }
       .header-area .oneMusic-main-menu .classy-navbar .classynav ul li a {
         font-weight: 700;
         text-transform: capitalize;
